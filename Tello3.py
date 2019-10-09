@@ -64,8 +64,12 @@ while True:
         version_init_num = int(python_version.partition('.')[0]) 
        # print (version_init_num)
         
-        statuscommandslist = ["command", "battery?", "baro?", "time?", "height?", "temp?", "attitude?" ]
+        statuscommandslist = ["battery?"]#, "baro?", "time?", "height?", "temp?", "attitude?" ]
         status(statuscommandslist)
+
+
+        print ('Tello: emergency command takeoff land flip forward back left right \r\n       up down cw ccw speed speed?\r\n')
+
 
        #before keyboard input, print all standard status values
         if version_init_num == 3:
