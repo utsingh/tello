@@ -33,6 +33,11 @@ def recv():
             print ('\nExit . . .\n')
             break
 
+def status(commandlist):
+    for command in commandlist:
+        print (command)
+        statuscommand = statuscommand.encode(encoding="utf-8") 
+        sent = sock.sendto(statuscommand, tello_address)
 
 print ('\r\n\r\nTello Python3 with DronaMaps.\r\n')
 
@@ -52,6 +57,11 @@ while True:
         python_version = str(platform.python_version())
         version_init_num = int(python_version.partition('.')[0]) 
        # print (version_init_num)
+        
+        statuscommandslist = ["command", "battery?", "baro?", "time?", "height?", "temp?", "attitude?" ]
+        status(statuscommandslist)
+
+       #before keyboard input, print all standard status values
         if version_init_num == 3:
             msg = input("");
         elif version_init_num == 2:
@@ -72,7 +82,5 @@ while True:
         print ('\n . . .KEYBOARD INTERRUPT . . .\n')
         sock.close()  
         break
-
-
 
 
