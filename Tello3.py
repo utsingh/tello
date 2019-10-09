@@ -61,7 +61,7 @@ while True:
             break  
 
         if 'end' in msg:
-            print ('...')
+            print ('...CONNECTION TERMINATED FROM TELLO')
             sock.close()  
             break
 
@@ -69,7 +69,7 @@ while True:
         msg = msg.encode(encoding="utf-8") 
         sent = sock.sendto(msg, tello_address)
     except KeyboardInterrupt:
-        print ('\n . . .\n')
+        print ('\n . . .KEYBOARD INTERRUPT . . .\n')
         sock.close()  
         break
 
