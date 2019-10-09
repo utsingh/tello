@@ -30,14 +30,20 @@ def recv():
             data, server = sock.recvfrom(1518)
             print(data.decode(encoding="utf-8"))
         except Exception:
-            print ('\nExit . . .\n')
+            print ('\nExit. ERROR receiving commands. . .\n')
             break
 
 def status(commandlist):
-    for command in commandlist:
-        print (command)
-        statuscommand = statuscommand.encode(encoding="utf-8") 
-        sent = sock.sendto(statuscommand, tello_address)
+    try:
+        for command in commandlist:
+            print (command)
+            statuscommand = command.encode(encoding="utf-8") 
+            sent = sock.sendto(statuscommand, tello_address)
+            # data, server = sock.recvfrom(1518)
+            # print(data.decode(encoding="utf-8"))
+    except Exception:
+        print ('\nExit. ERROR receiving Status. . .\n')
+#        break
 
 print ('\r\n\r\nTello Python3 with DronaMaps.\r\n')
 
